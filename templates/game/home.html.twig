@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+    <main>
+        {% block search %}
+            <section class="dark-container">
+                <form action="" method="post" style="display: flex; gap: 0.5em">
+                    <label for="titulo" class="hidden">Buscar</label>
+                    <input class="field" type="text" name="titulo" id="titulo" placeholder="Buscar">
+
+                    <label for="categoria"></label>
+                    <select class="field" name="categoria" id="categoria"></select>
+
+                    <label for="fecha_inicio"></label>
+                    <input class="field" type="date" name="fecha_inicio" id="fecha_inicio">
+
+                    <label for="fecha_final"></label>
+                    <input class="field" type="date" name="fecha_final" id="fecha_final">
+
+                    <button class="btn bg-blue" type="submit">Buscar</button>
+                    <button class="btn bg-gray" type="reset">Limpiar filtros</button>
+                </form>
+            </section>
+        {% endblock %}
+        {% block result %}
+            <section class="cards-container">
+                {% for %}
+            </section>
+        {% endblock %}
+    </main>
+{% endblock %}

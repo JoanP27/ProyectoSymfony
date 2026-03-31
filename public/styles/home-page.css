@@ -1,0 +1,105 @@
+main{
+    margin: 0 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+section#buscador{
+    background-color: var(--background-2);
+    padding: 1em;
+    border-radius: 0.5em;
+    form{
+        display: flex;
+        margin-bottom: 0 !important;
+        align-items: center;
+        gap: 1em;
+        input{
+            width: 50%;
+            border: none;
+            border-radius: 0.5em;
+            height: 2em;
+            background-color: var(--background-3);
+            color: var(--color-1);
+            padding: 0 0.5em;
+            font-size: 1em;
+        }
+        button{
+            height: 2em;
+            border: none;
+            color: var(--color-1);
+            font-size: 1em;
+            border-radius: 0.5em;
+            padding:  0 1em;
+            background-color: blue;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+section#juegos{
+    color: var(--color-1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1em;
+    height: max-content;
+
+}
+
+article.juego{
+    background-color: var(--component-bg);
+    border-radius: 0.5em;
+
+    img{
+        border-radius: 0.5em 0.5em 0 0;
+        width: 100%;
+        height: 8em;
+        object-fit: cover;
+    }
+
+    section.content{
+        color: var(--color-1);
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        p{
+            margin: 0;
+            margin-bottom: 0.5em;
+
+
+            &.title{
+                font-size: 1.5em;
+            }
+            &.description{
+                font-size: 1em;
+            }
+        }
+        section.actions{
+            margin-top: 1em;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            a{
+                background-color: blue;
+                padding: 0.5em 1em;
+                border-radius: 1em;
+            }
+            p{
+                color: white;
+                border: 1px solid white;
+                border-radius: 1em;
+                padding: 0.5em 1em;
+                font-weight: bold;
+                margin: 0;
+            }
+        }
+    }
+
+
+}

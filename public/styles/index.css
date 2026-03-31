@@ -1,0 +1,34 @@
+@import "components.css";
+@import "colors.css";
+
+:root
+{
+    --background: #17181C;
+    --background-2: #262930;
+    --background-3: #434957;
+    --color-1: #FDFEFD
+
+}
+*{
+    font-family: Arial;
+    a{
+        color: var(--color-1);
+        text-decoration: none;
+    }
+    .hidden {
+        display: none;
+    }
+}
+
+
+body{
+    color: var(--color-1);
+    background-color: var(--bg);
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    main {
+        margin: 0 3em;
+        padding-bottom: 3em;
+    }
+}

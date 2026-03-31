@@ -1,0 +1,135 @@
+a{
+    text-decoration: none;
+
+}
+
+input{
+    border: none;
+    background: none;
+    color: white;
+}
+
+textarea{
+    margin: 1em 0;
+    border-radius: 0.3em;
+    height: 20em;
+    border: 1px solid var(--color-1);
+    width: 100%;
+    background: none;
+    color: white;
+    font-size: 1em;
+}
+
+body{
+    margin-bottom: 1em;
+}
+
+main.app, form.app{
+    display: grid;
+    grid-template-columns: 2fr 30em;
+    gap: 1em;
+    margin-top: 1em;
+
+    section.title{
+        grid-column: 1/3;
+
+        input{
+            width: 100%;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 1em 0;
+            border-bottom: 2px solid var(--color-1);
+            padding-bottom: 0.5em;
+        }
+    }
+
+    section.actions{
+        grid-column: 1/3;
+        background-color: var(--background-2);
+        padding: 1em;
+        border-radius: 0.7em;
+        display: flex;
+        gap: 1em;
+
+        a, button{
+            background: none;
+            border: 2px solid white;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            border-radius: 0.9em;
+            font-weight: bold;
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+
+            &:nth-child(1)
+            {
+                border-color: white;
+                color: white;
+            }
+
+            &:nth-child(2)
+            {
+                border-color: red;
+                background-color: red;
+            }
+        }
+    }
+    section.content{
+        img{
+            height: 30em;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0.9em;
+        }
+    }
+    aside{
+        background-color: var(--background-2);
+        height: 100%;
+        border-radius: 0.9em;
+    }
+
+}
+section.comprar{
+    background-color: var(--background-2);
+    padding: 1em;
+    border-radius: 0.7em;
+    form, section.precio{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0.5em;
+        }
+
+
+        input{
+            width: 5em;
+            font-weight: bold;
+            font-size: 1em;
+            text-align: end;
+            border: 1px solid var(--color-1);
+            border-radius: 0.3em;
+        }
+
+        button{
+            display: flex;
+            gap: 1em;
+            color: white;
+            font-size: 1.2em;
+            font-weight:  400;
+            align-items: center;
+            vertical-align: center;
+            text-align: center;
+            border: none;
+            background-color: blue;
+            padding: 1em;
+            border-radius: 0.7em;
+        }
+    }
+}
+.icon{
+    color: white;
+}

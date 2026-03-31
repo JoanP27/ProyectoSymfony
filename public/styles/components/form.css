@@ -1,0 +1,77 @@
+*{
+    form {
+        margin: 0;
+    }
+}
+.field-container {
+     padding-bottom: 0.5em;
+     margin-top: 1em;
+}
+
+label.field-label {
+    display: block;
+    padding: 0.5em 0;
+}
+.field-group {
+    background-color: var(--component-bg);
+    padding: 1.5em;
+    border-radius: 0.4em;
+    border: 2px solid var(--container-border);
+}
+
+input.field {
+    padding: 0 0.5em;
+    border: none;
+    background-color: var(--field-color);
+    height: 2.5em;
+    font-size: 1em;
+    border-radius: 0.3em;
+    color: #cdd8e6;
+    box-sizing: border-box;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.37);
+
+    &:focus{
+        outline: 3px solid;
+    }
+
+    &:user-invalid {
+        border: 2px solid darkred;
+    }
+}
+textarea.field {
+    border: none;
+    padding: 0.5em;
+    resize: none;
+    width: 100%;
+    background-color: var(--field-color);
+    font-size: 1em;
+    border-radius: 0.3em;
+    color: #cdd8e6;
+    box-sizing: border-box;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.37);
+
+    &:focus{
+        outline: 3px solid;
+    }
+
+    &:user-invalid {
+        border: 2px solid darkred;
+    }
+}
+
+select.field {
+    border: none;
+    background-color: var(--background-2);
+    height: 2.5em;
+    font-size: 1em;
+    border-radius: 0.3em;
+    color: #cdd8e6;
+    box-sizing: border-box;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.37);
+    width: 10em;
+    padding: 0 0.5em;
+}
+
+input.field-file {
+    display: none;
+}
