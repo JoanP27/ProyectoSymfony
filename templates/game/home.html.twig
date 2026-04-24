@@ -3,7 +3,7 @@
     <main>
         {% block search %}
             <section class="dark-container">
-                <form action="" method="post" style="display: flex; gap: 0.5em">
+                <form action="" method="get" style="display: flex; gap: 0.5em">
                     <label for="titulo" class="hidden">Buscar</label>
                     <input class="field" type="text" name="titulo" id="titulo" placeholder="Buscar">
 
@@ -23,7 +23,9 @@
         {% endblock %}
         {% block result %}
             <section class="cards-container">
-                {% for %}
+                {% for juego in juegos %}
+                    <p>{{ juego.titulo }}</p>
+                {% endfor %}
             </section>
         {% endblock %}
     </main>
