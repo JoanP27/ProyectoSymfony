@@ -1,0 +1,12 @@
+<article class="card">
+        <img class="card-img" src="{{ juego.rutaImagen ? asset(juego.rutaImagen) : asset('imgs/placeholder.jpg') }}" alt="">
+    <section class="card-content">
+        <p class="title">{{ juego.titulo }}</p>
+        <p class="description">{{ juego.descripcion }}</p>
+        <p class="fecha">{{ juego.fecha | date('d/m/Y')}}</p>
+    </section>
+    <section class="card-footer">
+        <a href="{{ path('app_juego_show', {'id': juego.id}) }}" class="card-btn">Ver</a>
+        <p class="card-price">{{ juego.precio }}€</p>
+    </section>
+</article>
