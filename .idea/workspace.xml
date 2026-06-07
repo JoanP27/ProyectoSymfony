@@ -4,16 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="database connection">
-      <change afterPath="$PROJECT_DIR$/datos.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BLL/BaseApiBLL.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BLL/JuegoBLL.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/api/BaseApiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/api/JuegoApiController.php" afterDir="false" />
+    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="api">
+      <change afterPath="$PROJECT_DIR$/src/BLL/UsuarioBLL.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/api/UsuarioApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dwes.proyecto.symfony.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dwes.proyecto.symfony.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/reference.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/reference.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20260419082719.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20260419094516.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20260430124040.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/colors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/components.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/components/form.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/details-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/home-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/register-page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BLL/BaseApiBLL.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/BaseApiBLL.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JuegoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JuegoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Juego.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Juego.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/JuegoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/JuegoType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/JuegoRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/JuegoRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/home.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/juego.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/juego.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +62,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="PHP File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -42,10 +77,15 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/JoanP27/ProyectoSymfony&quot;,
-    &quot;accountId&quot;: &quot;8edcd8a0-2b0b-47fc-add6-2680d175dfba&quot;
+    &quot;url&quot;: &quot;https://github.com/JoanP27/ProyectoSymfony.git&quot;,
+    &quot;accountId&quot;: &quot;7ba1179e-a0de-4865-9d97-558c1526c947&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/assets/styles/app.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Entity/Juego.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Entity/Usuario.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
   <component name="PhpDebugGeneral" xdebug_debug_port="9000" zd_debug_port="12003" zd_settings_broadcasting_port="12000">
     <xdebug_debug_ports port="9000" />
     <xdebug_debug_ports port="9003" />
@@ -129,6 +169,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfonycasts/tailwind-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset-mapper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -141,13 +187,16 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;PHP Script.GameController.php.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dwes/proyectos/dwes.proyecto.symfony/public/imgs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/joan/Documentos/Docker/symfony/ProyectoSymfony/templates/juego&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -159,6 +208,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/juego" />
       <recent name="$PROJECT_DIR$/public/imgs" />
       <recent name="$PROJECT_DIR$/templates/styles" />
       <recent name="$PROJECT_DIR$/public/img" />
@@ -171,10 +221,12 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.26830.95" />
-        <option value="bundled-php-predefined-a98d8de5180a-9b563d34894c-com.jetbrains.php.sharedIndexes-PS-252.26830.95" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.32098.40" />
       </set>
     </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Twig" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -193,6 +245,13 @@
       <workItem from="1777043952301" duration="4708000" />
       <workItem from="1777378497940" duration="1485000" />
       <workItem from="1777551200047" duration="2206000" />
+      <workItem from="1779193014956" duration="2352000" />
+      <workItem from="1779365914599" duration="4055000" />
+      <workItem from="1779463432975" duration="738000" />
+      <workItem from="1779970956072" duration="4792000" />
+      <workItem from="1780841142975" duration="3840000" />
+      <workItem from="1780844991698" duration="7000" />
+      <workItem from="1780845246229" duration="8188000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />
@@ -202,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774959577761</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="api">
+      <option name="closed" value="true" />
+      <created>1778864421482</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778864421482</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +300,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="database connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="database connection" />
+    <MESSAGE value="api" />
+    <option name="LAST_COMMIT_MESSAGE" value="api" />
   </component>
 </project>

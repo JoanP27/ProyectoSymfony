@@ -1,21 +1,20 @@
-<header>
-    <section id="logo">
-        <img src="{{ asset('imgs/logo.png') }}" alt="">
-        <h3>DevCave</h3>
+<header class="bg-white/5 flex flex-row p-6 items-center justify-between">
+    <section id="logo" class="flex flex row items-center gap-2">
+        <img class="w-20 item-cover" src="{{ asset('imgs/logo.png') }}" alt="">
+        <h3 class="text-2xl">DevCave</h3>
     </section>
-    <nav>
-        <a>Inicio</a>
-        <a>Mis publicaciones</a>
-        <a>Mi Biblioteca</a>
-        <a>Nuevo Juego</a>
-        <a>Panel de control</a>
+    <nav class="flex flex-row">
+        <a class="menu-item" href="{{ path('app_juego_index') }}">Inicio</a>
+        <a class="menu-item">Mis publicaciones</a>
+        <a class="menu-item">Mi Biblioteca</a>
+        <a class="menu-item"href="{{ path('app_juego_new') }}">Nuevo Juego</a>
+        <a class="menu-item">Panel de control</a>
     </nav>
     <section id="login">
         {% if app.user %}
-            <a href="/logout">Cerrar sesión</a>
+            <a class="btn-logout" href="/logout">Cerrar sesión</a>
         {% else %}
-            <a href="{{ path('app_login') }}">Iniciar sesion</a>
-            <a href="{{ path('app_register') }}">Registrarse</a>
+            <a class="btn-login" href="{{ path('app_login') }}">Iniciar sesion</a>
         {% endif %}
     </section>
 </header>

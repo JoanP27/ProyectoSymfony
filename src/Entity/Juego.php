@@ -29,6 +29,13 @@ class Juego
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $rutaImagen = null;
 
+    #[ORM\ManyToOne(inversedBy: 'juegos')]
+    private ?CategoriaJuego $categoria = null;
+
+    #[ORM\ManyToOne(inversedBy: 'juegos')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Usuario $autor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +97,30 @@ class Juego
     public function setRutaImagen(string $rutaImagen): static
     {
         $this->rutaImagen = $rutaImagen;
+
+        return $this;
+    }
+
+    public function getCategoria(): ?CategoriaJuego
+    {
+        return $this->categoria;
+    }
+
+    public function setCategoria(?CategoriaJuego $categoria): static
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    public function getAutor(): ?Usuario
+    {
+        return $this->autor;
+    }
+
+    public function setAutor(?Usuario $autor): static
+    {
+        $this->autor = $autor;
 
         return $this;
     }

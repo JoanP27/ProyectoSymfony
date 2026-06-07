@@ -5,6 +5,7 @@ namespace App\BLL;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 abstract class BaseApiBLL
@@ -12,6 +13,7 @@ abstract class BaseApiBLL
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly ValidatorInterface $validator,
+        private readonly TokenStorageInterface $tokenStorage,
     ) { }
 
     public function guardarValidando($entity): ?array {
@@ -37,4 +39,9 @@ abstract class BaseApiBLL
 
         return $result;
     }
+
+    public function getUsuario() {
+        return $this->tokenStorage->getToken()->getUser();
+    }
+
 }

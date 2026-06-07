@@ -1,12 +1,11 @@
-<article class="card">
-        <img class="card-img" src="{{ juego.rutaImagen ? asset(juego.rutaImagen) : asset('imgs/placeholder.jpg') }}" alt="">
-    <section class="card-content">
-        <p class="title">{{ juego.titulo }}</p>
-        <p class="description">{{ juego.descripcion }}</p>
-        <p class="fecha">{{ juego.fecha | date('d/m/Y')}}</p>
+<a href="{{ path('app_juego_show', {'id': juego.id}) }}" class=" flex flex-col w-80 bg-gray-900 rounded-md transition-transform hover:scale-102">
+    <img class="h-50 object-cover rounded-tl-md rounded-tr-md" src="{{ juego.rutaImagen ? asset(juego.rutaImagen) : asset('imgs/placeholder.jpg') }}" alt="">
+    <section class="p-4 flex flex-col gap-2">
+        <p class="text-xl">{{ juego.titulo }}</p>
+        <p class="text-md description">{{ juego.descripcion }}</p>
+        <p class="text-md ">{{ juego.fecha | date('d/m/Y')}}</p>
     </section>
-    <section class="card-footer">
-        <a href="{{ path('app_juego_show', {'id': juego.id}) }}" class="card-btn">Ver</a>
-        <p class="card-price">{{ juego.precio }}€</p>
+    <section class="p-4 flex justify-end items-center">
+        <p class="tag">{{ juego.precio }} €</p>
     </section>
-</article>
+</a>

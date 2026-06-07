@@ -17,30 +17,27 @@ class JuegoRepository extends ServiceEntityRepository
         parent::__construct($registry, Juego::class);
     }
 
-    public function searchJuegos(?string $titulo, ?int $categoria, ?float $precio, ?DateTime $fechaInicio, ?DateTime $fechaFinal): ?array {
-        return $this->createQueryBuilder('Juego')
+    public function searchJuegos(?string $titulo, ?int $categoria, ?DateTime $fechaInicio, ?DateTime $fechaFinal): ?array
+    {
+        $qb = $this->createQueryBuilder('Juego')
             ->where('Juego.titulo LIKE :titulo')
-            ->andWhere('Juego.precio = :precio')
-            ->andWhere('Juego.fecha > :fechaInicio')
-            ->andWhere('Juego.fecha < :fechaFinal')
-            ->setParameter('titulo', "%$titulo%")
-            ->setParameter('precio', $precio)
-            ->setParameter('fechaInicio', $fechaInicio)
-            ->setParameter('fechaFinal', $fechaFinal)
-            ->getQuery()->getResult();
-/*
+            ->setParameter('titulo', "%$titulo%");
 
-        $qb = $this->createQueryBuilder('Juego');
+        if($categoria != null)
+            $qb->andWhere('Juego.categoria = :categoria')
+                ->setParameter('categoria', $categoria);
 
-        if(empty($filtros)) return [];
 
-        foreach ($filters as $key => $value) {
-            $qb->where(':key LIKE :valor');
-            $qb->setParameter('valor', "%$value%");
-            $qb->setParameter('key', "Juego.$key");
-        }
-        return $this->createQueryBuilder('Juego')
-            ->where('Juego.titulo LIKE :titulo');*/
+        if ($fechaInicio != null)
+            $qb->andWhere('Juego.fecha >= :fechaInicio')
+                ->setParameter('fechaInicio', $fechaInicio);
+
+        if ($fechaFinal != null)
+            $qb->andWhere('Juego.fecha <= :fechaFinal')
+                ->setParameter('fechaFinal', $fechaFinal);
+
+
+        return $qb->getQuery()->getResult();
     }
 
 //    /**

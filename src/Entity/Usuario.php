@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsuarioRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,20 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private bool $isVerified = false;
+
+    /**
+     * @var Collection<int, Juego>
+     */
+    #[ORM\OneToMany(targetEntity: Juego::class, mappedBy: 'autor')]
+    private Collection $juegos;
+
+    #[ORM\Column(length: 255)]
+    private ?string $nombre = null;
+
+    public function __construct()
+    {
+        $this->juegos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +135,48 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Juego>
+     */
+    public function getJuegos(): Collection
+    {
+        return $this->juegos;
+    }
+
+    public function addJuego(Juego $juego): static
+    {
+        if (!$this->juegos->contains($juego)) {
+            $this->juegos->add($juego);
+            $juego->setAutor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJuego(Juego $juego): static
+    {
+        if ($this->juegos->removeElement($juego)) {
+            // set the owning side to null (unless already changed)
+            if ($juego->getAutor() === $this) {
+                $juego->setAutor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): static
+    {
+        $this->nombre = $nombre;
 
         return $this;
     }

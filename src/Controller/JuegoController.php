@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Juego;
 use App\Form\JuegoType;
+use App\Repository\CategoriaJuegoRepository;
 use App\Repository\JuegoRepository;
+use DateMalformedStringException;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,28 +18,38 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/juego')]
 final class JuegoController extends AbstractController
 {
-    #[Route(name: 'app_juego_index', methods: ['GET'])]
-    public function index(JuegoRepository $juegoRepository): Response
+    /**
+     * @throws DateMalformedStringException
+     */
+    #[Route('', name: 'app_juego_index', methods: ['GET'])]
+    public function index(Request $request, JuegoRepository $juegoRepository, CategoriaJuegoRepository $categoriaJuegoRepository): Response
     {
+        $search = $request->query->get('titulo');
+        $category = $request->query->get('categoria');
+        $txtFechaInicio = $request->query->get('fecha_inicio');
+        $txtFechaFinal = $request->query->get('fecha_final');
 
+        $categorias = $categoriaJuegoRepository->findAll();
 
-        return $this->render('juego/index.html.twig', [
-            'juegos' => $juegoRepository->findAll(),
-        ]);
+        $fechaInicio =
+            $txtFechaInicio == '' ?
+                null :
+                new DateTime($txtFechaInicio);
 
-        /*
-         * $search = $request->query->get('titulo');
-        $categoria = $request->query->get('titulo');
-        $precio = $request->query->get('titulo');
-        $fechaInicio = $request->query->get('titulo');
-        $fechaFinal = $request->query->get('titulo');
+        $fechaFinal =
+            $txtFechaInicio == '' ?
+                null :
+                new DateTime($txtFechaFinal);
 
-        $juegoRepository = $entityManager->getRepository(Juego::class);
+        $juegos = $juegoRepository
+            ->searchJuegos(
+                $search,
+                $category,
+                !$fechaInicio ? null : $fechaInicio,
+                !$fechaFinal ? null : $fechaFinal
+            );
 
-        //print_r($juegoRepository->searchJuegos($search));
-
-        return $this->render('game/home.html.twig', ['juegos' => $juegoRepository->searchJuegos($search, $categoria, $precio, $fechaInicio, $fechaFinal)]);
-         * */
+        return $this->render('juego/index.html.twig', ['juegos' => $juegos, 'categorias' => $categorias]);
     }
 
     #[Route('/new', name: 'app_juego_new', methods: ['GET', 'POST'])]
@@ -47,6 +60,8 @@ final class JuegoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $juego->setAutor($this->getUser());
+
             $entityManager->persist($juego);
             $entityManager->flush();
 

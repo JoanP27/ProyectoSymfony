@@ -15,9 +15,20 @@ security:
         ROLE_ADMIN: ROLE_USER,
 
     firewalls:
+        login:
+            pattern: ^/api/v1/login
+            stateless: true
+            json_login:
+                check_path: /api/v1/login
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+
         api:
             pattern: ^/api/v1
-            security: false
+            security: true
+            stateless: true
+            jwt: ~
         dev:
             # Ensure dev tools and static assets are always allowed
             pattern: ^/(_profiler|_wdt|assets|build)/

@@ -3,9 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block styles %}{% endblock %}
+
+        {# templates/base.html.twig #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        {% endblock %}
     </head>
-    <body>
+    <body class="bg-gray-950 text-gray-100">
         {% block body %}{% endblock %}
     </body>
 </html>
