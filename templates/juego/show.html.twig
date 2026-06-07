@@ -4,7 +4,10 @@
         <section class="p-4">
             <section class="bg-white/10 flex p-4 rounded-md gap-2">
                 <a href="{{ path('app_juego_edit', {'id': juego.id}) }}" class="w-20 text-center btn btn-blue">Editar</a>
-                <a href="{{ path('app_juego_delete', {'id': juego.id}) }}" class="w-20 text-center btn btn-red">Eliminar</a>
+                <form method="post" action="{{ path('app_juego_delete', {'id': juego.id}) }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ juego.id) }}">
+                    <button class="w-20 text-center btn btn-red" type="submit">Eliminar</button>
+                </form>
             </section>
         </section>
     {% endif %}
@@ -17,10 +20,11 @@
                 <h2 class="text-2xl mb-2">{{ juego.titulo }}</h2>
                 <p>{{ juego.descripcion }}</p>
             </section>
-            <section class="bg-white/10 flex justify-between p-4 items-center rounded-xl">
+            <form method="post" action="{{ path('app_juego_buy', {"id": juego.id}) }}" class="bg-white/10 flex justify-between p-4 items-center rounded-xl">
                 <h3 class="text-xl">Comprar Juego</h3>
-                <a class="w-20 text-center btn btn-blue">{{ juego.precio }} €</a>
-            </section>
+                <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ juego.id) }}">
+                <button {{ app.user.id == juego.autor.id ? "disabled" : "" }} type="submit" class="w-20 text-center btn btn-disabled not-disabled:btn-blue">{{ juego.precio }} €</button>
+            </form>
         </section>
         <section class="h-auto flex-1 w-1/5 bg-white/10 p-4 rounded-md">
             <section class="flex items-center gap-5 border-b border-white/20 p-2 pb-4">

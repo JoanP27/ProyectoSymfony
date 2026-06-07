@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\JuegoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -35,6 +37,17 @@ class Juego
     #[ORM\ManyToOne(inversedBy: 'juegos')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Usuario $autor = null;
+
+    /**
+     * @var Collection<int, Usuario>
+     */
+    #[ORM\ManyToMany(targetEntity: Usuario::class, mappedBy: 'juegosComprados')]
+    private Collection $usuariosVendido;
+
+    public function __construct()
+    {
+        $this->usuariosVendido = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,6 +134,33 @@ class Juego
     public function setAutor(?Usuario $autor): static
     {
         $this->autor = $autor;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Usuario>
+     */
+    public function getUsuariosVendido(): Collection
+    {
+        return $this->usuariosVendido;
+    }
+
+    public function addUsuariosVendido(Usuario $usuariosVendido): static
+    {
+        if (!$this->usuariosVendido->contains($usuariosVendido)) {
+            $this->usuariosVendido->add($usuariosVendido);
+            $usuariosVendido->addJuegosComprado($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsuariosVendido(Usuario $usuariosVendido): static
+    {
+        if ($this->usuariosVendido->removeElement($usuariosVendido)) {
+            $usuariosVendido->removeJuegosComprado($this);
+        }
 
         return $this;
     }

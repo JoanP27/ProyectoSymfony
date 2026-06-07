@@ -5,7 +5,11 @@
 }
 
 .btn {
-    @apply rounded-md p-2 bg-gray-600
+    @apply rounded-md p-2
+}
+
+.btn-disabled {
+    @apply bg-gray-400/20 text-gray-300/60
 }
 
 .btn-blue {

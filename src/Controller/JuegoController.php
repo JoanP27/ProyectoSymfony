@@ -51,6 +51,12 @@ final class JuegoController extends AbstractController
 
         return $this->render('juego/index.html.twig', ['juegos' => $juegos, 'categorias' => $categorias]);
     }
+    #[Route('/library', name: 'app_juego_library', methods: ['GET'])]
+    public function library(Request $request, JuegoRepository $juegoRepository, CategoriaJuegoRepository $categoriaJuegoRepository): Response
+    {
+        $juegos = $this->getUser()->getJuegos();
+        return $this->render('juego/library.html.twig', ['juegos' => $juegos]);
+    }
 
     #[Route('/new', name: 'app_juego_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -108,6 +114,17 @@ final class JuegoController extends AbstractController
             $entityManager->flush();
         }
 
+        return $this->redirectToRoute('app_juego_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/buy', name: 'app_juego_buy', methods: ['POST'])]
+    public function buy(Request $request, Juego $juego, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('buy'.$juego->getId(), $request->getPayload()->getString('_token'))) {
+            $this->getUser()->addJuegosComprado($juego);
+            $juego->getUsuariosVendido()->add($this->getUser());
+            $entityManager->flush();
+        }
         return $this->redirectToRoute('app_juego_index', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -47,9 +47,16 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $nombre = null;
 
+    /**
+     * @var Collection<int, Juego>
+     */
+    #[ORM\ManyToMany(targetEntity: Juego::class, inversedBy: 'usuariosVendido')]
+    private Collection $juegosComprados;
+
     public function __construct()
     {
         $this->juegos = new ArrayCollection();
+        $this->juegosComprados = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +184,30 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setNombre(string $nombre): static
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Juego>
+     */
+    public function getJuegosComprados(): Collection
+    {
+        return $this->juegosComprados;
+    }
+
+    public function addJuegosComprado(Juego $juegosComprado): static
+    {
+        if (!$this->juegosComprados->contains($juegosComprado)) {
+            $this->juegosComprados->add($juegosComprado);
+        }
+
+        return $this;
+    }
+
+    public function removeJuegosComprado(Juego $juegosComprado): static
+    {
+        $this->juegosComprados->removeElement($juegosComprado);
 
         return $this;
     }
