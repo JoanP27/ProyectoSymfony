@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  php:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: dev
+    user: "1000:1000"
+    depends_on:
+      - database
+    command: >
+      bash -c "composer install
+      && sleep 5
+      && php bin/console doctrine:migrations:migrate --no-interaction
+      && php -S 0.0.0.0:8000 -t public/"
+
+  database:
+    env_file:
+      - .env
+    image: mariadb:10.11 # Using the stable LTS version
+    environment:
+      MYSQL_DATABASE: devcave_symfony
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+        - "8100:80" # Podrás acceder desde localhost:8080
+    environment:
+        - PMA_HOST=database # Le dice que busque el contenedor llamado "database"
+        - UPLOAD_LIMIT=300M # Opcional: Para poder importar .sql grandes si lo necesitas
+    depends_on:
+        - database
+
+volumes:
+  db-data:

@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+.menu-item {
+    @apply p-2 px-4 border border-transparent  hover:border-b-white
+}
+
+.btn {
+    @apply rounded-md p-2 bg-gray-600
+}
+
+.btn-blue {
+    @apply bg-blue-500/30 text-blue-400/80 hover:bg-blue-700/80 hover:text-white/80
+}
+
+.btn-green {
+    @apply bg-green-500/30 text-green-400/80 hover:bg-green-700/80 hover:text-white/80
+}
+
+
+.btn-red {
+    @apply bg-red-500/30 text-red-400/80 hover:bg-red-700/80 hover:text-white/80
+}
+
+.btn-gray {
+    @apply bg-gray-400/30 text-gray-300/60 hover:bg-gray-600/80 hover:text-white/80
+}
+
+.btn-logout {
+    @apply rounded-md bg-white/15 hover:bg-white/30 p-4
+}
+.btn-login {
+    @apply rounded-md bg-blue-400/20 hover:bg-blue-600/80 p-4
+}
+
+.tag {
+    @apply p-1 px-3 rounded-full bg-blue-500/30 text-blue-400
+}
+
+.field {
+    @apply bg-white/10 p-2 rounded-md focus:outline-3 outline-blue-400/30 text-gray-300
+}

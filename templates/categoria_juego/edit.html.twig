@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CategoriaJuego{% endblock %}
+
+{% block body %}
+    <h1>Edit CategoriaJuego</h1>
+
+    {{ include('categoria_juego/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_categoria_juego_index') }}">back to list</a>
+
+    {{ include('categoria_juego/_delete_form.html.twig') }}
+{% endblock %}
