@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="categorias implementadas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JuegoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JuegoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Juego.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Juego.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,6 +219,7 @@
       <workItem from="1780845246229" duration="8358000" />
       <workItem from="1780856109185" duration="2514000" />
       <workItem from="1780902250191" duration="14065000" />
+      <workItem from="1780927534057" duration="6371000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />

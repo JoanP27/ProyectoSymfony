@@ -1,38 +1,88 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+    <section class="w-full h-130 flex justify-center items-center">
+        <section class="w-100 bg-white/7 p-4 px-6 rounded-md">
+            <form method="post" class="flex flex-col items-center gap-10">
+                <h1 class="text-xl">Iniciar sesion</h1>
+                <section class="w-full flex flex-col gap-5">
+                    <div>
+                        <p>Email: </p>
+                        <input
+                            class="field w-full"
+                            type="email"
+                            value="{{ last_username }}"
+                            name="_username"
+                            id="username"
+                            autocomplete="email"
+                            required autofocus
+                        >
+                    </div>
+
+                    <div>
+                        <p>Contraseña:</p>
+                        <input
+                            class="field w-full"
+                            type="password"
+                            name="_password"
+                            id="password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                </section>
+                <input
+                    type="hidden"
+                    name="_csrf_token"
+                    data-controller="csrf-protection"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+                <button class="btn btn-blue w-30" type="submit">
+                    Sign in
+                </button>
+            </form>
+        </section>
+    </section>
+{% endblock %}
+
+{#
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
-            </div>
-        {% endif %}
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
+        </div>
+    {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="username">Email</label>
+    <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+    <label for="password">Password</label>
+    <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
 
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
+        <div class="checkbox mb-3">
+            <input type="checkbox" name="_remember_me" id="_remember_me">
+            <label for="_remember_me">Remember me</label>
+        </div>
+#}{#
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+<button class="btn btn-lg btn-primary" type="submit">
+    Sign in
+</button>
+</form>
 {% endblock %}
+
+#}

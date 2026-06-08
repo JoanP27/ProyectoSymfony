@@ -47,13 +47,13 @@
             <h3 class="text-xl">Comentarios</h3>
             <section class="flex flex-col gap-2 mb-4">
                 {% for c in juego.comentarios %}
-                    <section class="p-2 bg-white/10 rounded-md">
+                    <section class="p-4 bg-white/10 rounded-md">
                         <section class="flex items-center gap-4 mb-2">
                             <img class="rounded-full object-cover size-10" src="{{ asset('uploads/avatars/' ~ juego.autor.avatar) ?? asset('imgs/placeholder.jpg') }}">
                             {{ juego.autor.nombre }}
                         </section>
 
-                        <p>{{ c.mensaje }}</p>
+                        <p class="border-t pt-2 border-white/20">{{ c.mensaje }}</p>
                     </section>
                 {% endfor %}
             </section>

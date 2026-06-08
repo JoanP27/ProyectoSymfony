@@ -39,5 +39,15 @@
             {% endfor %}
         </section>
     </section>
+
+    <h3 class="text-xl">Mis comentarios</h3>
+    <section class="flex flex-col gap-2 mb-4">
+        {% for c in usuario.comentarios %}
+            <section class="p-4 bg-white/10 rounded-md flex flex-col gap-2">
+                <p>{{ c.mensaje }}</p>
+                <p class="border-t pt-2 border-white/30">Juego: <a class="text-blue-400" href="{{ path('app_juego_show', {'id': c.juego.id()}) }}">{{ c.juego.titulo }}</a></p>
+            </section>
+        {% endfor %}
+    </section>
 </main>
 {% endblock %}

@@ -1,4 +1,46 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block main %}
+    {{ form_errors(registrationForm) }}
+    <section class="w-full h-150 flex justify-center items-center">
+        <section class="w-100 bg-white/7 p-4 px-6 rounded-md">
+            {{ form_start(registrationForm) }}
+                <h1 class="text-xl mb-2">Registro</h1>
+                <section class="flex flex-col gap-4 w-full">
+                    <div class="w-full">
+                        <p>Email</p>
+                        {{ form_widget(registrationForm.email) }}
+                    </div>
+
+                    <div>
+                        <p>Nombre</p>
+                        {{ form_widget(registrationForm.nombre) }}
+                    </div>
+
+                    <div>
+                        <p>Contraseña</p>
+                        {{ form_widget(registrationForm.password.first) }}
+                    </div>
+
+                    <div>
+                        <p>Repetir contraseña</p>
+                        {{ form_widget(registrationForm.password.second) }}
+                    </div>
+
+                    <div>
+                        <p>Aceptar terminos</p>
+                        {{ form_widget(registrationForm.agreeTerms) }}
+                    </div>
+                </section>
+                <button type="submit" class="btn btn-blue mt-4">Enviar</button>
+
+
+            {{ form_end(registrationForm) }}
+        </section>
+    </section>
+{% endblock %}
+
+
+{#% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
@@ -19,4 +61,4 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
-{% endblock %}
+{% endblock %}#}
