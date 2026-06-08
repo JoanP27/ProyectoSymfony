@@ -10,6 +10,7 @@ use DateMalformedStringException;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -18,6 +19,8 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/juego')]
 final class JuegoController extends AbstractController
 {
+
+
     /**
      * @throws DateMalformedStringException
      */
@@ -73,6 +76,20 @@ final class JuegoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $img = $form->get('rutaImagen')->getData();
+
+            if ($img) {
+                $imgFile = uniqid() . '.' . $img->guessExtension();
+
+                try {
+                    $img->move($this->getParameter('img_juegos_directory'), $imgFile);
+                    $juego->setRutaImagen($imgFile);
+                } catch (FileException $e) {
+                    $this->addFlash('error', 'No se pudo subir la imagen: ' . $e->getMessage());
+                    return $this->redirectToRoute('app_juego_new');
+                }
+            }
+
             $juego->setAutor($this->getUser());
 
             $entityManager->persist($juego);
@@ -102,6 +119,20 @@ final class JuegoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $img = $form->get('rutaImagen')->getData();
+
+            if ($img) {
+                $imgFile = uniqid() . '.' . $img->guessExtension();
+
+                try {
+                    $img->move($this->getParameter('img_juegos_directory'), $imgFile);
+                    $juego->setRutaImagen($imgFile);
+                } catch (FileException $e) {
+                    $this->addFlash('error', 'No se pudo subir la imagen: ' . $e->getMessage());
+                    return $this->redirectToRoute('app_juego_new');
+                }
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_juego_index', [], Response::HTTP_SEE_OTHER);

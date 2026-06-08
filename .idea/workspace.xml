@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="library">
-      <change afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/UserProfileFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/juego/published.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/perfil-edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" afterDir="false" />
+    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="avatar img">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/JuegoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JuegoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/juego.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/juego.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +215,7 @@
       <workItem from="1780844991698" duration="7000" />
       <workItem from="1780845246229" duration="8358000" />
       <workItem from="1780856109185" duration="2514000" />
-      <workItem from="1780902250191" duration="9999000" />
+      <workItem from="1780902250191" duration="10683000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />
@@ -263,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780858624352</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="avatar img">
+      <option name="closed" value="true" />
+      <created>1780912310868</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780912310868</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +299,7 @@
     <MESSAGE value="api" />
     <MESSAGE value="vistas de detalles, añadir, editar y boton de eliminar, categorias añadidas en buscador, tailwind para css" />
     <MESSAGE value="library" />
-    <option name="LAST_COMMIT_MESSAGE" value="library" />
+    <MESSAGE value="avatar img" />
+    <option name="LAST_COMMIT_MESSAGE" value="avatar img" />
   </component>
 </project>

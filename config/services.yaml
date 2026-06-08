@@ -9,6 +9,7 @@
 parameters:
     url_avatars_directory: '/uploads/'
     avatars_directory: '%kernel.project_dir%/public/uploads/avatars'
+    img_juegos_directory: '%kernel.project_dir%/public/uploads/img_juegos'
 services:
     # default configuration for services in *this* file
     _defaults:
