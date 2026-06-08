@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\CategoriaJuego;
 use App\Entity\Juego;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -27,6 +29,13 @@ class JuegoType extends AbstractType
                     'class' => 'field resize-none',
                 ]
             ])
+            ->add('categoria', EntityType::class, [
+                'class' => CategoriaJuego::class,
+                'choice_label' => 'nombre',
+                'attr' => [
+                    'class' => 'field',
+                ]
+            ])
             ->add('precio', NumberType::class, [
                 'attr' => [
                     'class' => 'field',
@@ -38,6 +47,7 @@ class JuegoType extends AbstractType
                 ]
             ])
             ->add('rutaImagen', FileType::class, [
+                'required' => false,
                 'label' => 'Selecciona una imagen',
                 'data_class' => null,
                 'label_attr' => [

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="avatar img">
+    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="juegos con imagen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JuegoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JuegoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/JuegoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/JuegoType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/partials/juego.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/juego.html.twig" afterDir="false" />
     </list>
@@ -215,7 +217,7 @@
       <workItem from="1780844991698" duration="7000" />
       <workItem from="1780845246229" duration="8358000" />
       <workItem from="1780856109185" duration="2514000" />
-      <workItem from="1780902250191" duration="10683000" />
+      <workItem from="1780902250191" duration="12348000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />
@@ -265,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780912310868</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="juegos con imagen">
+      <option name="closed" value="true" />
+      <created>1780913135590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780913135590</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +310,7 @@
     <MESSAGE value="vistas de detalles, añadir, editar y boton de eliminar, categorias añadidas en buscador, tailwind para css" />
     <MESSAGE value="library" />
     <MESSAGE value="avatar img" />
-    <option name="LAST_COMMIT_MESSAGE" value="avatar img" />
+    <MESSAGE value="juegos con imagen" />
+    <option name="LAST_COMMIT_MESSAGE" value="juegos con imagen" />
   </component>
 </project>

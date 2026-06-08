@@ -2,7 +2,7 @@
 {% block main %}
     {% if(app.user.id == juego.autor.id) %}
         <section class="p-4">
-            <section class="bg-white/10 flex p-4 rounded-md gap-2">
+            <section class="bg-white/10 flex p-4 rounded-md gap-2 ">
                 <a href="{{ path('app_juego_edit', {'id': juego.id}) }}" class="w-20 text-center btn btn-blue">Editar</a>
                 <form method="post" action="{{ path('app_juego_delete', {'id': juego.id}) }}">
                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ juego.id) }}">
@@ -11,27 +11,47 @@
             </section>
         </section>
     {% endif %}
-    <main class="p-4 flex gap-4 items-stretch">
-        <section class="w-4/5 flex flex-col gap-8">
+    <main class="p-4 flex flex-col gap-4 items-stretch">
+        <section class=" flex flex-col gap-8">
             <section>
-                <img class="w-full h-80 object-cover" src="{{ asset('uploads/img_juegos/' ~ juego.rutaImagen) ?? asset('imgs/placeholder.jpg') }}" alt="">
+                <img class="w-full h-80 object-cover" src="{{ juego.rutaImagen ? asset('uploads/img_juegos/' ~ juego.rutaImagen) : asset('imgs/placeholder.jpg') }}" alt="">
             </section>
             <section class="flex flex-col gap-2">
                 <h2 class="text-2xl mb-2">{{ juego.titulo }}</h2>
                 <p>{{ juego.descripcion }}</p>
             </section>
+            {% if juego.categoria %}
+            <section>
+                <h2 class="text-xl mb-2">Categoria</h2>
+                <section class="flex">
+                    <span class="tag-green">{{ juego.categoria.nombre }}</span>
+                </section>
+            </section>
+            {% endif %}
             <form method="post" action="{{ path('app_juego_buy', {"id": juego.id}) }}" class="bg-white/10 flex justify-between p-4 items-center rounded-xl">
                 <h3 class="text-xl">Comprar Juego</h3>
                 <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ juego.id) }}">
                 <button {{ app.user.id == juego.autor.id ? "disabled" : "" }} type="submit" class="w-20 text-center btn btn-disabled not-disabled:btn-blue">{{ juego.precio }} €</button>
             </form>
         </section>
-        <section class="h-auto flex-1 w-1/5 bg-white/10 p-4 rounded-md">
-            <section class="flex items-center gap-5 border-b border-white/20 p-2 pb-4">
+        <h2 class="text-xl">Creador</h2>
+        <section class="h-auto flex-1 bg-white/10 p-4 rounded-md">
+            <section class="flex items-center gap-5 p-2">
                 <div>
-                    <img  class="rounded-full size-30" src="{{ asset('imgs/placeholder.jpg') }}">
+                    <img  class="rounded-full object-cover size-20" src="{{ app.user.avatar ? asset('uploads/avatars/' ~ app.user.avatar) : asset('imgs/placeholder.jpg') }}">
                 </div>
                 <h2 class="text-xl">{{ juego.autor.nombre }}</h2>
+            </section>
+        </section>
+        <section>
+            <h3 class="text-xl">Comentarios</h3>
+            <section>
+
+            </section>
+            <section>
+                <form>
+
+                </form>
             </section>
         </section>
     </main>

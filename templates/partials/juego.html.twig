@@ -1,11 +1,14 @@
-<a href="{{ path('app_juego_show', {'id': juego.id}) }}" class=" flex flex-col w-80 bg-gray-900 rounded-md transition-transform hover:scale-102">
-    <img class="h-50 object-cover rounded-tl-md rounded-tr-md" src="{{ asset('uploads/img_juegos/' ~ juego.rutaImagen) ?? asset('imgs/placeholder.jpg') }}" alt="">
+<a href="{{ path('app_juego_show', {'id': juego.id}) }}" class=" flex flex-col w-80 bg-gray-900 rounded-md transition-transform hover:scale-102 justify-between">
+    <img class="h-50 object-cover rounded-tl-md rounded-tr-md" src="{{ juego.rutaImagen ? asset('uploads/img_juegos/' ~ juego.rutaImagen) : asset('imgs/placeholder.jpg') }}" alt="">
     <section class="p-4 flex flex-col gap-2">
         <p class="text-xl">{{ juego.titulo }}</p>
         <p class="text-md description">{{ juego.descripcion }}</p>
         <p class="text-md ">{{ juego.fecha | date('d/m/Y')}}</p>
     </section>
-    <section class="p-4 flex justify-end items-center">
+    <section class="p-4 flex justify-end items-center gap-2">
+        {% if juego.categoria %}
+            <p class="tag-green">{{ juego.categoria.nombre }} </p>
+        {% endif %}
         <p class="tag">{{ juego.precio }} €</p>
     </section>
 </a>
