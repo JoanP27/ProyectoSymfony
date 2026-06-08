@@ -56,10 +56,17 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $avatar = null;
 
+    /**
+     * @var Collection<int, Comentario>
+     */
+    #[ORM\OneToMany(targetEntity: Comentario::class, mappedBy: 'emisor')]
+    private Collection $comentarios;
+
     public function __construct()
     {
         $this->juegos = new ArrayCollection();
         $this->juegosComprados = new ArrayCollection();
+        $this->comentarios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -223,6 +230,36 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(?string $avatar): static
     {
         $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comentario>
+     */
+    public function getComentarios(): Collection
+    {
+        return $this->comentarios;
+    }
+
+    public function addComentario(Comentario $comentario): static
+    {
+        if (!$this->comentarios->contains($comentario)) {
+            $this->comentarios->add($comentario);
+            $comentario->setEmisor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComentario(Comentario $comentario): static
+    {
+        if ($this->comentarios->removeElement($comentario)) {
+            // set the owning side to null (unless already changed)
+            if ($comentario->getEmisor() === $this) {
+                $comentario->setEmisor(null);
+            }
+        }
 
         return $this;
     }

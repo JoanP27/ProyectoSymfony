@@ -44,9 +44,16 @@ class Juego
     #[ORM\ManyToMany(targetEntity: Usuario::class, mappedBy: 'juegosComprados')]
     private Collection $usuariosVendido;
 
+    /**
+     * @var Collection<int, Comentario>
+     */
+    #[ORM\OneToMany(targetEntity: Comentario::class, mappedBy: 'juego')]
+    private Collection $comentarios;
+
     public function __construct()
     {
         $this->usuariosVendido = new ArrayCollection();
+        $this->comentarios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -160,6 +167,36 @@ class Juego
     {
         if ($this->usuariosVendido->removeElement($usuariosVendido)) {
             $usuariosVendido->removeJuegosComprado($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comentario>
+     */
+    public function getComentarios(): Collection
+    {
+        return $this->comentarios;
+    }
+
+    public function addComentario(Comentario $comentario): static
+    {
+        if (!$this->comentarios->contains($comentario)) {
+            $this->comentarios->add($comentario);
+            $comentario->setJuego($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComentario(Comentario $comentario): static
+    {
+        if ($this->comentarios->removeElement($comentario)) {
+            // set the owning side to null (unless already changed)
+            if ($comentario->getJuego() === $this) {
+                $comentario->setJuego(null);
+            }
         }
 
         return $this;

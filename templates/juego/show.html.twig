@@ -45,14 +45,26 @@
         </section>
         <section>
             <h3 class="text-xl">Comentarios</h3>
-            <section>
+            <section class="flex flex-col gap-2 mb-4">
+                {% for c in juego.comentarios %}
+                    <section class="p-2 bg-white/10 rounded-md">
+                        <section class="flex items-center gap-4 mb-2">
+                            <img class="rounded-full object-cover size-10" src="{{ asset('uploads/avatars/' ~ juego.autor.avatar) ?? asset('imgs/placeholder.jpg') }}">
+                            {{ juego.autor.nombre }}
+                        </section>
 
+                        <p>{{ c.mensaje }}</p>
+                    </section>
+                {% endfor %}
             </section>
-            <section>
-                <form>
-
-                </form>
+            {{ form_start(commentarioForm) }}
+            <section class="flex flex-col gap-2 p-4 bg-white/7 rounded-md">
+                    {{ form_widget(commentarioForm.mensaje) }}
+                    <div>
+                        <button type="submit" class="btn btn-blue">Enviar</button>
+                    </div>
             </section>
+            {{ form_end(commentarioForm) }}
         </section>
     </main>
 {% endblock %}

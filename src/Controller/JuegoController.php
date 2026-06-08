@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comentario;
 use App\Entity\Juego;
+use App\Form\ComentarioType;
 use App\Form\JuegoType;
 use App\Repository\CategoriaJuegoRepository;
 use App\Repository\JuegoRepository;
@@ -104,11 +106,32 @@ final class JuegoController extends AbstractController
         ]);
     }
 
+    #[Route('/{id}/add-comment', name: 'app_juego_add_comment', methods: ['POST'])]
+    public function addComment(Request $request, Juego $juego, EntityManagerInterface $entityManager): Response
+    {
+        $comment = new Comentario();
+        $comment->setJuego($juego);
+        $comment->setEmisor($this->getUser());
+        $form = $this->createForm(ComentarioType::class, $comment);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_juego_show', ['id' => $juego->getId()]);
+        }
+        $this->addFlash('error', 'No se pudo añadir el comentario');
+        return $this->redirectToRoute('app_juego_show', ['id' => $juego->getId()]);
+    }
     #[Route('/{id}', name: 'app_juego_show', methods: ['GET'])]
     public function show(Juego $juego): Response
     {
+        $commentarioForm = $this->createForm(ComentarioType::class, null, [
+            'action' => $this->generateUrl('app_juego_add_comment', ['id' => $juego->getId()])
+        ]);
+
         return $this->render('juego/show.html.twig', [
             'juego' => $juego,
+            'commentarioForm' => $commentarioForm->createView(),
         ]);
     }
 
