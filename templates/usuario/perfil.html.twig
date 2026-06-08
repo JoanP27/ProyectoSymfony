@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+<main class="p-4 flex flex-col gap-6">
+    {% if(usuario.id == app.user.id) %}
+    <section class="bg-white/7 p-4 rounded-b-md flex">
+        <a class="w-25 text-center btn btn-blue" href="{{ path('app_edit_my_profile') }}">Editar</a>
+    </section>
+    {% endif %}
+    <section>
+        <div class="p-4 bg-blue-400/20 rounded-t-md mb-2">
+            <h3 class="text-xl">Avatar</h3>
+        </div>
+        <section class="bg-white/7 p-4 rounded-b-md">
+            <img class="size-50 object-cover rounded-full" src="{{ asset('uploads/avatars/' ~ usuario.avatar) ?? asset('imgs/placeholder.jpg') }}">
+        </section>
+    </section>
+    <section>
+        <div class="p-4 bg-blue-400/20 rounded-t-md mb-2">
+            <h3 class="text-xl">Datos del usuario</h3>
+        </div>
+        <section class="bg-white/7 p-4 rounded-b-md">
+            <div class="mb-5">
+                <p class="text-lg text-white/70">Nombre</p>
+                <p>{{ usuario.nombre }}</p>
+            </div>
+            <div class="mb-5">
+                <p class="text-lg text-white/70">Correo electronico</p>
+                <p>{{ usuario.email }}</p>
+            </div>
+        </section>
+    </section>
+    <section class="rounded-md">
+        <div class="p-4 bg-blue-400/20 rounded-t-md mb-4">
+            <h3 class="text-xl">Juegos publicados</h3>
+        </div>
+        <section class="flex gap-4">
+            {% for juego in usuario.juegos %}
+                {% include 'partials/juego.html.twig' %}
+            {% endfor %}
+        </section>
+    </section>
+</main>
+{% endblock %}

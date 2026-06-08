@@ -53,6 +53,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Juego::class, inversedBy: 'usuariosVendido')]
     private Collection $juegosComprados;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $avatar = null;
+
     public function __construct()
     {
         $this->juegos = new ArrayCollection();
@@ -208,6 +211,18 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeJuegosComprado(Juego $juegosComprado): static
     {
         $this->juegosComprados->removeElement($juegosComprado);
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): static
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

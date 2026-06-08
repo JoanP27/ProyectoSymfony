@@ -1,0 +1,96 @@
+{% extends 'layout.html.twig' %}
+{% block main %}
+    <main>
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <section  class="p-4 flex flex-col gap-6">
+            {% for message in app.flashes('error') %}
+                <div class="bg-red-500/10 border border-red-500/20 text-red-500 p-4 rounded-md mb-4">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% if(usuario.id == app.user.id) %}
+                <section class="bg-white/7 p-4 rounded-md flex gap-2">
+                    <button type="submit" class="w-25 text-center btn btn-green">Guardar</button>
+                    <a href="{{ path('app_my_profile') }}" class="w-25 text-center btn btn-blue">Cancelar</a>
+                </section>
+            {% endif %}
+            <section>
+                <div class="p-4 bg-blue-400/20 rounded-t-md mb-2">
+                    <h3 class="text-xl">Avatar</h3>
+                </div>
+                <section class="bg-white/7 p-4 rounded-b-md">
+                    {# <img class="size-50 object-cover rounded-full" src="{{ usuario.avatar ?? asset('imgs/placeholder.jpg') }}"#}
+                    <div class="flex gap-4">
+                        {{ form_label(form.avatar) }}
+                        <div class="flex items-center">
+                            {{ form_widget(form.avatar) }}
+                            {% if not form.avatar.vars.valid %}
+                                <div class="p-2 bg-red-400/20 border text-red-200/80 border-red-500/40 rounded-md">
+                                    {{ form_errors(form.avatar) }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <div class="p-4 bg-blue-400/20 rounded-t-md mb-2">
+                    <h3 class="text-xl">Datos del usuario</h3>
+                </div>
+                <section class="bg-white/7 p-4 rounded-b-md">
+                    <div class="mb-5">
+                        <p class="text-lg text-white/70">Nombre</p>
+                        <div class="flex items-center">
+                            {{ form_widget(form.nombre) }}
+                            {% if not form.nombre.vars.valid %}
+                                <div class="mt-2 p-2 bg-red-400/20 border text-red-200/80 border-red-500/40 rounded-md">
+                                    {{ form_errors(form.nombre) }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-lg text-white/70">Correo electronico</p>
+                        {{ form_widget(form.email) }}
+                        {% if not form.email.vars.valid %}
+                            <div class="mt-2 p-2 bg-red-400/20 border text-red-200/80 border-red-500/40 rounded-md">
+                                {{ form_errors(form.email) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-lg text-white/70">Contraseña</p>
+                        {{ form_widget(form.password.first) }}
+                        {% if not form.password.first.vars.valid %}
+                            <div class="mt-2 p-2 bg-red-400/20 border text-red-200/80 border-red-500/40 rounded-md">
+                                {{ form_errors(form.password.first) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="text-lg text-white/70">Repetir contraseña</p>
+                        {{ form_widget(form.password.second) }}
+                        {% if not form.password.second.vars.valid %}
+                            <div class="mt-2 p-2 bg-red-400/20 border text-red-200/80 border-red-500/40 rounded-md">
+                                {{ form_errors(form.password.second) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </section>
+            </section>
+            <section class="rounded-md">
+                <div class="p-4 bg-blue-400/20 rounded-t-md mb-4">
+                    <h3 class="text-xl">Juegos publicados</h3>
+                </div>
+                <section class="flex gap-4">
+                    {% for juego in usuario.juegos %}
+                        {% include 'partials/juego.html.twig' %}
+                    {% endfor %}
+                </section>
+            </section>
+        </section>
+        {{ form_end(form) }}
+    </main>
+{% endblock %}

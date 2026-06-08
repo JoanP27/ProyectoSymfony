@@ -54,8 +54,15 @@ final class JuegoController extends AbstractController
     #[Route('/library', name: 'app_juego_library', methods: ['GET'])]
     public function library(Request $request, JuegoRepository $juegoRepository, CategoriaJuegoRepository $categoriaJuegoRepository): Response
     {
-        $juegos = $this->getUser()->getJuegos();
+        $juegos = $this->getUser()->getJuegosComprados();
         return $this->render('juego/library.html.twig', ['juegos' => $juegos]);
+    }
+
+    #[Route('/pubished', name: 'app_juego_published', methods: ['GET'])]
+    public function published(Request $request, JuegoRepository $juegoRepository, CategoriaJuegoRepository $categoriaJuegoRepository): Response
+    {
+        $juegos = $this->getUser()->getJuegos();
+        return $this->render('juego/published.html.twig', ['juegos' => $juegos]);
     }
 
     #[Route('/new', name: 'app_juego_new', methods: ['GET', 'POST'])]

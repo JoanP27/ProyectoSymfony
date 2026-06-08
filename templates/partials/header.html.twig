@@ -5,14 +5,25 @@
     </section>
     <nav class="flex flex-row">
         <a class="menu-item" href="{{ path('app_juego_index') }}">Inicio</a>
-        <a class="menu-item">Mis publicaciones</a>
+        <a class="menu-item" href="{{ path('app_juego_published') }}">Mis publicaciones</a>
         <a class="menu-item" href="{{ path('app_juego_library') }}">Mi Biblioteca</a>
         <a class="menu-item" href="{{ path('app_juego_new') }}">Nuevo Juego</a>
         <a class="menu-item">Panel de control</a>
     </nav>
     <section id="login">
         {% if app.user %}
-            <a class="btn-logout" href="/logout">Cerrar sesión</a>
+            <section class="p-2 hover:rounded-b-none rounded-md btn-gray w-30 text-center group">
+                <section class="flex items-center justify-center gap-4">
+                     <img class="rounded-full object-cover size-10" src="{{ asset('uploads/avatars/' ~ app.user.avatar) ?? asset('imgs/placeholder.jpg') }}">
+                    {{ app.user.nombre }}
+                </section>
+
+                <section class=" rounded-md flex-col bg-gray-800 hidden group-hover:flex absolute w-40 right-5 mt-2 p-2">
+                    <a class="p-2 btn hover:bg-white/10" href="{{ path('app_my_profile') }}">Mi perfil</a>
+                    <a class="p-2 btn text-red-400 hover:bg-red-400/20" href="{{ path('app_logout') }}">Cerrar sesión</a>
+                </section>
+            </section>
+
         {% else %}
             <a class="btn-login" href="{{ path('app_login') }}">Iniciar sesion</a>
         {% endif %}
