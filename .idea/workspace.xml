@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="panel de control y comandos">
-      <change afterPath="$PROJECT_DIR$/src/BLL/CommentBLL.php" afterDir="false" />
+    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="api rest y validaciones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/BaseApiBLL.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/BaseApiBLL.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BLL/JuegoBLL.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/JuegoBLL.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BLL/UsuarioBLL.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/BLL/UsuarioBLL.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/api/BaseApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/api/BaseApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/api/JuegoApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/api/JuegoApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/api/UsuarioApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/api/UsuarioApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Juego.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Juego.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/JuegoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/JuegoType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/juego/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/juego/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/juego/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +221,7 @@
       <workItem from="1780927534057" duration="6438000" />
       <workItem from="1780934093702" duration="26000" />
       <workItem from="1780939473307" duration="4353000" />
-      <workItem from="1780985404073" duration="13185000" />
+      <workItem from="1780985404073" duration="15537000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />
@@ -315,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780987241001</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="api rest y validaciones">
+      <option name="closed" value="true" />
+      <created>1780998655004</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1780998655004</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +350,7 @@
     <MESSAGE value="categorias implementadas" />
     <MESSAGE value="vistas de login y registro" />
     <MESSAGE value="panel de control y comandos" />
-    <option name="LAST_COMMIT_MESSAGE" value="panel de control y comandos" />
+    <MESSAGE value="api rest y validaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="api rest y validaciones" />
   </component>
 </project>

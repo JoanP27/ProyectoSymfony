@@ -40,7 +40,7 @@
                 <div>
                     <img  class="rounded-full object-cover size-20" src="{{ app.user.avatar ? asset('uploads/avatars/' ~ app.user.avatar) : asset('imgs/placeholder.jpg') }}">
                 </div>
-                <h2 class="text-xl">{{ juego.autor.nombre }}</h2>
+                <h2 class="text-xl"><a href="{{ path('app_profile', {'id': juego.autor.id}) }}">{{ juego.autor.nombre }}</a></h2>
             </section>
         </section>
         <section>
@@ -49,8 +49,8 @@
                 {% for c in juego.comentarios %}
                     <section class="p-4 bg-white/10 rounded-md">
                         <section class="flex items-center gap-4 mb-2">
-                            <img class="rounded-full object-cover size-10" src="{{ asset('uploads/avatars/' ~ juego.autor.avatar) ?? asset('imgs/placeholder.jpg') }}">
-                            {{ juego.autor.nombre }}
+                            <img class="rounded-full object-cover size-10" src="{{ c.emisor.avatar ? asset('uploads/avatars/' ~ c.emisor.avatar) : asset('imgs/placeholder.jpg') }}">
+                            {{ c.emisor.nombre }}
                         </section>
 
                         <p class="border-t pt-2 border-white/20">{{ c.mensaje }}</p>

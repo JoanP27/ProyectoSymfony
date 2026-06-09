@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Usuario;
 use App\Form\UserProfileFormType;
+use App\Repository\UsuarioRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -19,6 +20,16 @@ class UsuarioController extends AbstractController
     public function index(): Response
     {
         return $this->render('usuario/perfil.html.twig', ['usuario' => $this->getUser()]);
+    }
+
+    #[Route('/profile/{id}', name: 'app_profile')]
+    public function showProfile(int $id, UsuarioRepository $usuarioRepository): Response
+    {
+        $usuario = $usuarioRepository->find($id);
+        if (!$usuario) {
+            throw $this->createNotFoundException();
+        }
+        return $this->render('usuario/perfil.html.twig', ['usuario' => $usuario]);
     }
 
     #[Route('/my-profile-edit', name: 'app_edit_my_profile')]

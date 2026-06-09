@@ -5,6 +5,7 @@ namespace App\Controller\api;
 use App\BLL\UsuarioBLL;
 use App\Controller\api\BaseApiController;
 use App\Entity\Usuario;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -51,6 +52,12 @@ class UsuarioApiController extends BaseApiController
     )]
     public function cambiaAvatar(Request $request, UsuarioBLL $usuarioBLL) {
         $data = $this->getContent($request);
-        //$avatar_directory =
+        if (is_null($data['avatar']))
+            throw new BadRequestException('No se ha recibido la imagen');
+        $avatars_directory = $this->getParameter('avatars_directory');
+        $url_avatars_directory = $this->getParameter('url_avatars_directory');
+        $user = $usuarioBLL->cambiaAvatar(
+            $request, $data['avatar'], $avatars_directory, $url_avatars_directory);
+        return $this->getResponse($user);
     }
 }

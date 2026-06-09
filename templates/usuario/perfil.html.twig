@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block main %}
 <main class="p-4 flex flex-col gap-6">
-    {% if(usuario.id == app.user.id) %}
+    {% if(usuario and app.user and usuario.id == app.user.id) %}
     <section class="bg-white/7 p-4 rounded-b-md flex">
         <a class="w-25 text-center btn btn-blue" href="{{ path('app_edit_my_profile') }}">Editar</a>
     </section>
@@ -45,7 +45,7 @@
         {% for c in usuario.comentarios %}
             <section class="p-4 bg-white/10 rounded-md flex flex-col gap-2">
                 <p>{{ c.mensaje }}</p>
-                <p class="border-t pt-2 border-white/30">Juego: <a class="text-blue-400" href="{{ path('app_juego_show', {'id': c.juego.id()}) }}">{{ c.juego.titulo }}</a></p>
+                <p class="border-t pt-2 border-white/30">Juego: <a class="text-blue-400" href="{{ path('app_juego_show', {'id': c.juego.id}) }}">{{ c.juego.titulo }}</a></p>
             </section>
         {% endfor %}
     </section>
