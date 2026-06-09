@@ -28,9 +28,13 @@ class AdminController extends AbstractController
     public function changeRole(EntityManagerInterface $entityManager,  Usuario $usuario, Request $request): Response
     {
         $rol = $request->request->get('role');
-        $usuario->setRoles([$rol]);
-        $entityManager->flush();
 
+        if ($rol === 'ROLE_ADMIN') {
+            $usuario->setRoles(['ROLE_ADMIN']);
+        } else {
+            $usuario->setRoles(['ROLE_USER']);
+        }
+        $entityManager->flush();
         return $this->redirectToRoute('app_admin_index');
     }
 

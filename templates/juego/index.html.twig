@@ -27,7 +27,7 @@
             </section>
         {% endblock %}
         {% block result %}
-            <section class="flex gap-4">
+            <section class="flex gap-4 flex-wrap">
                 {% for juego in juegos %}
                     {% include 'partials/juego.html.twig' %}
                 {% endfor %}

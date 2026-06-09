@@ -37,6 +37,11 @@
                     data-controller="csrf-protection"
                     value="{{ csrf_token('authenticate') }}"
                 >
+                {% if error %}
+                    <div class="bg-red-400/20 p-2 w-50 text-center border border-red-400/60 rounded-md">
+                        <p>{{ error.message }}</p>
+                    </div>
+                {% endif %}
                 <button class="btn btn-blue w-30" type="submit">
                     Sign in
                 </button>

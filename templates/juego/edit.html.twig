@@ -7,30 +7,62 @@
                 <a href="{{ path('app_juego_show', {'id': juego.id}) }}" class="w-20 text-center btn btn-gray">Cancelar</a>
             </section>
             <section class="flex flex-col gap-4 bg-white/7 p-4 rounded-md">
-                    <div class="flex flex-col gap-1">
-                        {{ form_label(form.titulo) }}
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form_label(form.titulo) }}
+                    <div class="flex flex-col w-full">
                         {{ form_widget(form.titulo) }}
+                        <div class="text-red-300 w-full">
+                            {{ form_errors(form.titulo) }}
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-1">
-                        {{ form_label(form.descripcion) }}
+                </div>
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form_label(form.descripcion) }}
+                    <div class="flex flex-col w-full">
                         {{ form_widget(form.descripcion) }}
+                        <div class="text-red-300">
+                            {{ form_errors(form.descripcion) }}
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-1">
-                        {{ form_label(form.categoria) }}
+
+                </div>
+                <div class="flex flex-col gap-1">
+                    {{ form_label(form.categoria) }}
+                    <div class="">
                         {{ form_widget(form.categoria) }}
+                        <div class="text-red-300">
+                            {{ form_errors(form.categoria) }}
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-1">
-                        {{ form_label(form.precio) }}
+
+                </div>
+                <div class="flex flex-col gap-1">
+                    {{ form_label(form.precio) }}
+                    <div>
                         {{ form_widget(form.precio) }}
+                        <div class="text-red-300">
+                            {{ form_errors(form.precio) }}
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-1">
-                        {{ form_label(form.fecha) }}
+                </div>
+                <div class="flex flex-col gap-1">
+                    {{ form_label(form.fecha) }}
+                    <div>
                         {{ form_widget(form.fecha) }}
+                        <div class="text-red-300">
+                            {{ form_errors(form.fecha) }}
+                        </div>
                     </div>
-                    <div class="flex mt-4 gap-1">
-                        {{ form_label(form.rutaImagen) }}
+                </div>
+                <div class="flex mt-4 gap-1">
+                    {{ form_label(form.rutaImagen) }}
+                    <div>
                         {{ form_widget(form.rutaImagen) }}
+                        <div class="text-red-300">
+                            {{ form_errors(form.rutaImagen) }}
+                        </div>
                     </div>
+                </div>
             </section>
     {{ form_end(form) }}
     </main>

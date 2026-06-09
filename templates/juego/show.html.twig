@@ -31,7 +31,7 @@
             <form method="post" action="{{ path('app_juego_buy', {"id": juego.id}) }}" class="bg-white/10 flex justify-between p-4 items-center rounded-xl">
                 <h3 class="text-xl">Comprar Juego</h3>
                 <input type="hidden" name="_token" value="{{ csrf_token('buy' ~ juego.id) }}">
-                <button {{ app.user.id == juego.autor.id ? "disabled" : "" }} type="submit" class="w-20 text-center btn btn-disabled not-disabled:btn-blue">{{ juego.precio }} €</button>
+                <button {{ app.user.id == juego.autor.id ? 'disabled' : '' }} type="submit" class="w-20 text-center btn {{ app.user.id == juego.autor.id ? 'btn-disabled' : 'btn-blue' }}">{{ juego.precio }} €</button>
             </form>
         </section>
         <h2 class="text-xl">Creador</h2>

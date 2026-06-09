@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BaseApiController extends AbstractController
 {
-    public function getContent(Request $request): Response
+    public function getContent(Request $request)
     {
         $data = json_decode($request->getContent(), true);
         if(is_null($data)) {

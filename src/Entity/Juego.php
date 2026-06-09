@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: JuegoRepository::class)]
 class Juego
 {
@@ -23,6 +23,7 @@ class Juego
     private ?string $descripcion = null;
 
     #[ORM\Column]
+    #[Assert\Positive]
     private ?float $precio = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

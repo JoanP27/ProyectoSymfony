@@ -4,6 +4,7 @@
         <section class="flex flex-col gap-4 mt-4">
             <form class="bg-white/7 p-4 rounded-md flex gap-4 items-center" action="{{ path('app_admin_index') }}" method="get">
                 <select class="field" name="role" id="role">
+                    <option value="">-- ninguno --</option>
                     <option {{ filtros['role'] == 'ROLE_USER' ? 'selected' : ''}} value="ROLE_USER">User</option>
                     <option {{ filtros['role'] == 'ROLE_ADMIN' ? 'selected' : ''}} value="ROLE_ADMIN">Admin</option>
                 </select>
@@ -19,8 +20,8 @@
                     <div class="flex gap-2">
                         {% if u.id != app.user.id %}
                         <form action="{{ path('app_admin_changerole', {'id': u.id}) }}" method="post">
-                            <input type="hidden" name="role" id="role" value="{{ "[ROLE_USER]" in u.roles ? "[ROLE_ADMIN]" : "[ROLE_USER]" }}">
-                            <button type="submit" class="btn btn-blue">Hacer {{ "[ROLE_USER]" in u.roles ? "Admin" : "User"  }}</button>
+                            <input type="hidden" name="role" id="role" value="{{ "ROLE_ADMIN" in u.roles ? "ROLE_USER" : "ROLE_ADMIN" }}">
+                            <button type="submit" class="btn btn-blue">Hacer {{ "ROLE_ADMIN" in u.roles ? "User" : "Admin"  }}</button>
                         </form>
                         <form action="{{ path('app_admin_delete', {'id': u.id}) }}" method="post">
                             <button type="submit" class="btn btn-red"> Eliminar </button>

@@ -3,20 +3,50 @@
 namespace App\BLL;
 
 use App\BLL\BaseApiBLL;
+use App\Entity\Usuario;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Encoder\EncoderInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class UsuarioBLL extends BaseApiBLL
 {
+
+    public function __construct(
+        public readonly EntityManagerInterface $entityManager,
+        public readonly ValidatorInterface $validator,
+        public readonly TokenStorageInterface $tokenStorage,
+        public readonly UserPasswordHasherInterface $hasher
+    )
+    {
+        parent::__construct($this->entityManager, $this->validator, $this->tokenStorage);
+    }
     public function profile() {
 
     }
 
     public function toArray($entity): ?array
     {
-        return [];
-        // TODO: Implement toArray() method.
+        return [
+            'id' => $entity->getId(),
+            'email' => $entity->getEmail(),
+            'password' => $entity->getPassword(),
+            'nombre' => $entity->getNombre(),
+            'avatar' => $entity->getAvatar()
+        ];
     }
 
+    public function nuevo(?array $datos) {
+        $user = new Usuario();
+        $user->setNombre($datos['username']);
+        $user->setPassword($this->hasher->hashPassword($user, $datos['password']));
+        $user->setEmail($datos['email']);
+        $user->setAvatar('-');
+        return $this->guardarValidando($user);
+    }
     public function cambiarAvatar(Request $request, string $avatar, string $avatar_directory, string $url_avatar_directory)
     {
         $user = $this->getUsuario();

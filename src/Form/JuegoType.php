@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class JuegoType extends AbstractType
 {
@@ -38,8 +39,10 @@ class JuegoType extends AbstractType
             ])
             ->add('precio', NumberType::class, [
                 'attr' => [
+                    'type' => 'number',
+                    'min' => 0,
                     'class' => 'field',
-                ]
+                ],
             ])
             ->add('fecha', DateType::class, [
                 'attr' => [

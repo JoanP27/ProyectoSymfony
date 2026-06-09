@@ -2,8 +2,10 @@
 
 namespace App\BLL;
 
+use App\Repository\JuegoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -24,11 +26,12 @@ abstract class BaseApiBLL
         }
 
         $this->entityManager->persist($entity);
-        $this->entityManager->flush($entity);
+        $this->entityManager->flush();
 
         return $this->toArray($entity);
     }
     public abstract function toArray($entity): ?array;
+
     public function entitiesToArray(?array $entities): ?array {
         if(!is_array($entities)) { return null; }
         $result = [];
