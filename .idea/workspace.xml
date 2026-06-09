@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="categorias implementadas">
+    <list default="true" id="b70baa54-3405-4465-97ca-70a8c48e1d58" name="Changes" comment="vistas de login y registro">
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/juego/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/usuario/perfil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JuegoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/JuegoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UsuarioRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UsuarioRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/juego/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/juego/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +219,10 @@
       <workItem from="1780845246229" duration="8358000" />
       <workItem from="1780856109185" duration="2514000" />
       <workItem from="1780902250191" duration="14065000" />
-      <workItem from="1780927534057" duration="6371000" />
+      <workItem from="1780927534057" duration="6438000" />
+      <workItem from="1780934093702" duration="26000" />
+      <workItem from="1780939473307" duration="4353000" />
+      <workItem from="1780985404073" duration="1749000" />
     </task>
     <task id="LOCAL-00001" summary="database connection">
       <option name="closed" value="true" />
@@ -285,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780914627685</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="vistas de login y registro">
+      <option name="closed" value="true" />
+      <created>1780933960289</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1780933960289</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +333,7 @@
     <MESSAGE value="avatar img" />
     <MESSAGE value="juegos con imagen" />
     <MESSAGE value="categorias implementadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="categorias implementadas" />
+    <MESSAGE value="vistas de login y registro" />
+    <option name="LAST_COMMIT_MESSAGE" value="vistas de login y registro" />
   </component>
 </project>

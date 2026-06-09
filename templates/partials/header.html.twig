@@ -8,7 +8,9 @@
         <a class="menu-item" href="{{ path('app_juego_published') }}">Mis publicaciones</a>
         <a class="menu-item" href="{{ path('app_juego_library') }}">Mi Biblioteca</a>
         <a class="menu-item" href="{{ path('app_juego_new') }}">Nuevo Juego</a>
-        <a class="menu-item">Panel de control</a>
+        {% if app.user and app.user.roles and 'ROLE_ADMIN' in app.user.roles %}
+        <a class="menu-item" href="{{ path('app_admin_index') }}">Panel de control</a>
+        {% endif %}
     </nav>
     <section id="login">
         {% if app.user %}

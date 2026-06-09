@@ -42,7 +42,7 @@ final class JuegoController extends AbstractController
                 new DateTime($txtFechaInicio);
 
         $fechaFinal =
-            $txtFechaInicio == '' ?
+            $txtFechaFinal == '' ?
                 null :
                 new DateTime($txtFechaFinal);
 
@@ -54,7 +54,12 @@ final class JuegoController extends AbstractController
                 !$fechaFinal ? null : $fechaFinal
             );
 
-        return $this->render('juego/index.html.twig', ['juegos' => $juegos, 'categorias' => $categorias]);
+        return $this->render('juego/index.html.twig', ['juegos' => $juegos, 'categorias' => $categorias, 'filtros' => [
+            'titulo' => $search,
+            'categoria' => $category,
+            'fechaInicio' => $fechaInicio,
+            'fechaFinal' => $fechaFinal,
+        ]]);
     }
     #[Route('/library', name: 'app_juego_library', methods: ['GET'])]
     public function library(Request $request, JuegoRepository $juegoRepository, CategoriaJuegoRepository $categoriaJuegoRepository): Response
@@ -105,7 +110,6 @@ final class JuegoController extends AbstractController
             'form' => $form,
         ]);
     }
-
     #[Route('/{id}/add-comment', name: 'app_juego_add_comment', methods: ['POST'])]
     public function addComment(Request $request, Juego $juego, EntityManagerInterface $entityManager): Response
     {
